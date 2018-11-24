@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>选择器和过滤器</title>
+    <style>
+    div{
+        padding: 2px;
+        margin-bottom: 1px;
+        background: rgba(0, 0, 0, 0.3)
+    }
+    </style>
+</head>
+<body>
+    <div class="grendpa">
+        <div class="pa">
+            <div class="child"></div>
+            <div class="child not-bid"></div>
+            <script src="jq.js"> </script>
+            <script>
+            $(".grendpa").css("border","2px solid red");
+            $("div").find(".child").css("background","yellow");//->find找到div下的child
+            $(".child").parent(".pa").css("border","1px solid green");//->parent找到上一级，parents找到所有的上级
+            $(".child").filter(".not-bid").css("background","pink");//->过滤含有not-bid的属性的并且添加样式
+
+            </script>
+        </div>
+    </div>
+</body>
+</html>
