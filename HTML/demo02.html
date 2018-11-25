@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>事件</title>
+</head>
+<style>
+   #card h1{
+        margin: 10px auto;
+        color: aqua;
+    }
+#card{
+    margin: 10px 0;
+    padding: 15px;
+    background:yellowgreen;
+    color: lightcoral;
+    position: relative;
+    display: none;
+}
+#card.active{
+    background: lightpink;
+    color: red;
+}
+#cardBtn{
+    width: 100px;
+    height: 25px;
+    position: absolute;
+    left: 280px;
+}
+</style>
+<body>
+    <div id="card">
+        <h1>人在流浪，心在天堂！</h1>
+        【衣衫褴褛男子到派出所捐1000元：钱是正规渠道来的，
+        请放心交给贫困学子[心]】23日，浙江宁波，
+        白鹤派出所接待了一名特殊来访者：一名看似流浪汉的男子到所捐献1000元，
+        请民警帮忙转交给困难学子。他说：“我在报纸上看到助学计划，也想捐点钱！”
+        此举瞬间感动周围人，前来办事的市民纷纷解囊相助。
+    </div>
+    <button id="cardBtn">显示or隐藏</button>
+    <script src="jq.js"></script>
+    <script>
+    var cardBtn = $("#cardBtn");
+    var card = $("#card");
+    cardBtn.on("click",function(){
+        if(card.is(":visible")){//->判断card是否是显示的
+            card.slideUp(2000);
+        }else{
+            card.slideDown(2500);
+        }
+    });
+    card.on("mouseenter",function(){
+        card.addClass("active")
+    })
+    card.on("mouseleave",function(){
+        card.removeClass("active")
+    })
+    </script>
+</body>
+</html>
