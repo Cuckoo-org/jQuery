@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>操作样式</title>
+</head>
+<style>
+.block{
+    font-size: 50px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+</style>
+<body>
+    <div class="box">aaaa</div>
+    <div class="box1">哈哈哈啊哈哈</div>
+
+<script src="jq.js">
+</script>
+<script>
+  var a = $(".box").css({
+    color:"red",
+    backgroundColor:"blue",
+    border:"3px solid yellow"//->批量操作样式
+});
+$(".box").addClass("block");//->追加样式类
+$(".box").removeClass("block");//->移除样式类
+console.log(a.hasClass("box"));//->true 检测有没有包含box这个类 ，返回的是布尔值；
+console.log(a.hasClass("block"));//->false
+
+var b = $(".box1");
+b.hide();//-> 隐藏
+b.show();//->显示
+b.fadeOut(2000);//->带有动画效果隐藏
+b.fadeIn(3000);//->带有动画效果显示
+b.slideUp(2500);//->带有效果从下往上隐藏
+b.slideDown(3000)//->同上相反效果
+
+</script>
+</body>
+</html>
