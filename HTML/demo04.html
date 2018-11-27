@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表单输入与提交</title>
+</head>
+<body>
+    <form  id="login"  action="demo02.html">
+        用户名：<input type="text">
+        密码：<input type="password">
+    </form>
+    <button id="loginIn">点击查看</button>
+    <script src="jq.js"></script>
+    <script>
+    $("#loginIn").click(function(){
+        $("#login").submit();
+    })
+    </script>
+</body>
+</html>
