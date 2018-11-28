@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jQuery实现选项卡</title>
+    <style>
+    *{
+
+        text-align: center;
+    }
+    .box li{
+        display: inline;
+         width: 24%;
+         text-decoration: none;
+         padding: 15px;
+         cursor: pointer;
+    }
+    li:hover{
+        background: lightblue;
+    }
+    .box div{
+        width: 100%;
+        
+    }
+    </style>
+</head>
+<body>
+    <div class="box" id="box1">
+        <ul>
+            <li class="select">页卡一</li>
+            <li>页卡二</li>
+            <li>页卡三</li>
+            <li>页卡四</li>
+        </ul>
+        <div class="select">内容一</div>
+        <div>内容二</div>
+        <div>内容三</div>
+        <div>内容四</div>
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+</body>
+</html>
