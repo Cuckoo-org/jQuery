@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>时间</title>
+</head>
+<body onload="startTime()">
+    <div id="div1"></div>
+
+    <script>
+        //->递归调用
+    function startTime(){
+    var date = new Date();
+    var y = date.getFullYear();
+    var t = date.getMonth();
+    var h = date.getHours();
+    var m = date.getMinutes();
+    var s = date.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById("div1").innerHTML = y+"年："+t+"月："+h+"时"+m+"分钟"+s+"秒";
+      t= setTimeout(function(){
+         startTime();
+      },1000)
+}
+function checkTime(i){
+    if(i<10){
+        i = "0"+i;
+    }
+    return i;
+}
+    </script>
+</body>
+</html>
