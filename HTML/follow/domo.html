@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>导航栏效果</title>
+    <style>
+    body,div{
+        margin: 0;
+        padding: 0;
+    }
+    #box{
+        position: relative;
+        margin: 25px auto;
+        width: 200px;
+        height: 100px;
+        background: lightcoral;
+    }
+    #lan{
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 100px;
+        width: 300px;
+        height: 300px;
+        background: lightblue;
+    }
+    </style>
+</head>
+<body>
+            <div id="box">
+                    <div id="lan"></div>
+                </div>
+
+
+    <script>
+    var box = document.getElementById("box");
+    var lan = document.getElementById("lan");
+    box.onmouseenter=function(){
+       lan.style.display="block";
+    }
+    box.onmouseleave=function(){
+       lan.style.display="none";
+    }
+    </script>
+</body>
+</html>
