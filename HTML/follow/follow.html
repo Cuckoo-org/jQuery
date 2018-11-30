@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>鼠标跟随jQuery版</title>
+    <style>
+    body,div,img{
+        margin: 0;
+        padding: 0;
+    }
+    img{
+        display: block;
+        border: none;
+    }
+    .box{
+        position: relative;
+        margin: 20px auto;
+        width: 1240px;
+        height: 300px;
+    }
+    .box img{
+        float: left;
+        margin-left: 5px;
+        width: 300px;
+        height: 200px;
+        border: 1px solid red;
+    }
+    #mark{
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        width: 400px;
+        height: 400px;
+        border: 1px solid lightblue;
+    }
+    #mark img{
+        float: inherit;
+        margin-left: 0;
+        width: 100%;
+        height: 100%;
+        margin: none;
+    }
+    </style>
+</head>
+<body>
+    <div class="box" id="box">
+        <img src="img/1.jpg"  bigImg="img/big1.jpg">
+        <img src="img/2.jpg"  bigImg="img/big2.jpg">
+        <img src="img/3.jpeg" bigImg="img/big3.jpg">
+        <img src="img/4.jpg"  bigImg="img/big4.jpg">
+    </div>
+    <div id="mark">
+        <img src="img/big1.jpg" >
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+
+    <script>
+        //->等价于$(document).ready() 当页面上的HTML结构都加载完成再执行对应的函数
+    $(function(){
+    var $box = $("#box"),$mark = $("#mark");
+    var $boxOffset = $box.offset();//->获取当前元素距离body的偏移{left||top}
+    $box.children("img").bind("mouseover",function(e){
+     e=e||window.event;
+     e.target = e.target||e.srcElement;
+     var left = e.clientX-$boxOffset.left+10;
+     var top=e.clientY-$boxOffset.top+10;
+     $mark.stop().show(1000).css({left:left,top:top}).find("img").attr("src",e.target.getAttribute("bigImg"));
+     //->jquery提供的动画方式{hide、toggle、slideDown、slideUp、slideToggle、fadeIn、fadeOut、fadeToggle、animate。。。}
+    }) .bind("mousemove",function(e){
+     e=e||window.event;
+     e.target = e.target||e.srcElement;
+     var left = e.clientX-$boxOffset.left+10;
+     var top=e.clientY-$boxOffset.top+10;
+    }).bind("mouseout",function(){
+        $mark.stop().hide(500)
+    })
+});
+    </script>
+</body>
+</html>
